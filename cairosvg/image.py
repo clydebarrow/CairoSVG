@@ -87,8 +87,8 @@ def image(surface, node):
         png_file.seek(0)
 
     image_surface = cairo.ImageSurface.create_from_png(png_file)
-    image_surface.pattern = cairo.SurfacePattern(image_surface)
-    image_surface.pattern.set_filter(IMAGE_RENDERING.get(
+    image_surface_pattern = cairo.SurfacePattern(image_surface)
+    image_surface_pattern.set_filter(IMAGE_RENDERING.get(
         node.get('image-rendering'), cairo.FILTER_GOOD))
 
     node.image_width = image_surface.get_width()
@@ -112,7 +112,7 @@ def image(surface, node):
     surface.context.translate(x, y)
     surface.context.scale(scale_x, scale_y)
     surface.context.translate(translate_x, translate_y)
-    surface.context.set_source(image_surface.pattern)
+    surface.context.set_source(image_surface_pattern)
     surface.context.paint_with_alpha(opacity)
     surface.context.restore()
 

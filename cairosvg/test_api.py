@@ -8,7 +8,7 @@ These tests can be used as deployment tests.
 import io
 import sys
 
-import cairocffi as cairo
+import cairo as cairo
 import pytest
 
 from . import SURFACES, VERSION, parser, surface, svg2pdf, svg2png

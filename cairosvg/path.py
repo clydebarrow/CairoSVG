@@ -98,7 +98,7 @@ def draw_markers(surface, node):
                 surface.context.save()
                 surface.context.translate(*point)
                 surface.context.rotate(angle)
-                surface.context.scale(scale)
+                surface.context.scale(scale, scale)
                 surface.context.scale(scale_x, scale_y)
                 surface.context.translate(translate_x, translate_y)
 
